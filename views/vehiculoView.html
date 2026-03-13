@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@extern('head')
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/Modal/modal.css{{PROYECT_MODE}}">
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerAdmin')
+
+	<!-- TEMPLATE TABLA -->
+	<template id="tpl_row_table">
+		<tr>
+			<td class="tpl-col-patente"></td>
+			<td class="tpl-col-marca"></td>
+			<td class="tpl-col-modelo"></td>
+			<td class="tpl-col-anio"></td>
+			<td class="tpl-col-vtv"></td>
+			<td class="tpl-col-tara"></td>
+			<td class="tpl-col-acoplado"></td>
+			<td>
+				<button class="btn btn-edit" >
+					<img src="views/img/system/edit.svg" alt="">
+				</button>
+				<button class="btn btn-delete" >
+					<img src="views/img/system/delete.svg" alt="">
+				</button>
+			</td>
+		</tr>
+	</template>
+	
+	<!--PRINCIPAL-->
+	<section class="section-body" >
+
+		<h2 class="section-title">
+			<img src="views/img/system/vehiculo.png">
+			Vehículos
+		</h2>
+		
+		<hr>
+	
+		<!-- SECCION DE CONTROL -->
+		<div class="section-control" id="section_control">
+			<!-- BOTON AGREGAR -->
+			<button class='btn' id='btn_agregar' onclick='addVehiculo()'>
+				<i class='bi bi-plus-lg'></i> 
+				Agregar Vehículo
+			</button>
+
+			<!-- INPUT BUSCADOR -->
+			<input type="text" class="input-search" id="buscador" placeholder="Buscar">
+			
+			<!-- PAGINACION -->
+			<div id="div_select_pag">
+				<button id="btn_last_page" class="select-pag" style="background-color: white"> 
+					<
+				</button>
+				<select id="select_pag" class="select-pag"></select>
+				<button id="btn_next_page" class="select-pag" style="background-color: white"> 
+					>
+				</button>
+			</div>
+
+			<!-- ORDENAMIENTO -->
+			<div>
+				<label for="select_order">Ordenar por</label>
+				<select id="select_order" class="select-pag">
+					<option value="true">más reciente</option>
+					<option value="false">más antiguo</option>
+				</select>
+			</div>
+		</div>
+		
+		<!-- TABLA -->
+		<div class="table-scroll" id="contenido_tablas">
+			<table id="tabla">
+				<thead>
+					<tr>
+						<th>Patente</th>
+						<th>Marca</th>
+						<th>Modelo</th>
+						<th>Año</th>
+						<th>VTV</th> 
+						<th>Tara</th>
+			            <th>Tipo de Acoplado</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="tabla_content">
+					
+				</tbody>
+			</table>	
+		</div>
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPTS -->
+	<script src="libs/Jquery/jquery-3.7.1.min.js"></script>
+	<script defer src="libs/Modal/modal.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/vehiculos.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

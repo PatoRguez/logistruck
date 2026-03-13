@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@extern('head')
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+	@extern('headerAdmin')
+
+	<section>
+		<h1 class="title-panel">Vehículos</h1>
+		<hr class="linea-panel">
+		<div class="banner">
+			<a href="./vehiculo">
+				<div class="conteiner">
+					<div id="sv">
+						<img src="views/img/system/truck.svg">
+					</div>
+				<div id="text">
+						<h2>Ver Vehículos</h2>
+						
+					</div>
+				</div>
+			</a>
+
+			<a href="./acoplado">
+				<div class="conteiner">
+					<div id="sv">
+						<img src="views/img/system/remolque.svg">
+					</div>
+				<div id="text">
+						<h2>Ver Acoplados</h2>
+						
+					</div>
+				</div>
+			</a>
+
+			<a href="./assignvehiculo">
+				<div class="conteiner">
+					<div id="sv">
+						<img src="views/img/system/add-location.svg">
+					</div>
+					<div id="text">
+						<h2>Ver Vehículos Asignados </h2>
+					
+					</div>
+				</div>
+			</a>
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	@extern('footer')
+	
+	<script src="views/js/script.js"></script>
+</body>
+</html>

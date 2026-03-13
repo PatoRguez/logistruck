@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	@extern('head')
+</head>
+<body>
+	<!--ENCABEZADO-->
+	@extern('headerUser')
+
+	<!--PRINCIPAL-->
+	
+	<section>
+		<div class="user-vista">
+			<div class="vista">
+				<h2 class="section-title" style="justify-content: center;">
+					<img src="views/img/system/grafico.svg" >
+					Estadísticas
+				</h2>
+				
+				<hr style="margin: 1rem">
+				<!-- KM RECORRIDOS -->
+				<div class="grafico" style="box-shadow: none;">
+					<h4>Km recorridos en el Año</h4>
+					<canvas id="grafico_km" ></canvas>
+				</div>
+	
+				<!-- TOTAL DE ENVIOS EN EL AÑO -->
+				<div class="grafico" style="box-shadow: none;">
+					<h4>Envios Realizados en el Año</h4>
+					<canvas id="grafico_envios" ></canvas>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	@extern('footer')
+
+	<!-- SCRIPTS -->
+	<script src="libs/Jquery/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/estadisticasUser.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

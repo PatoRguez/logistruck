@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@extern('head')
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+	
+	@extern('headerAdmin')
+
+	<section>
+		<h1 class="title-panel">Viajes</h1>
+		<hr class="linea-panel">
+		<div class="banner">
+			<a href="./viajes">
+				<div class="conteiner">
+					<div id="sv">
+						<img src="views/img/system/viaje.svg">
+					</div>
+				<div id="text">
+						<h2>Ver Viajes</h2>
+						
+					</div>
+				</div>
+			</a>
+
+			<a href="./assignviaje">
+				<div class="conteiner">
+					<div id="sv">
+						<img src="views/img/system/map-distance.svg">
+					</div>
+				<div id="text">
+						<h2>Asignar viaje</h2>
+						
+					</div>
+				</div>
+			</a>
+
+			<a href="./destinos">
+				<div class="conteiner">
+					<div id="sv">
+						<img src="views/img/system/destination-route.svg">
+					</div>
+					<div id="text">
+						<h2>Ver Destinos</h2>
+					
+					</div>
+				</div>
+			</a>
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	@extern('footer')
+	<script src="views/js/script.js"></script>
+</body>
+</html>

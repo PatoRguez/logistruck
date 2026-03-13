@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @extern('head')
+    <link rel="stylesheet" type="text/css" href="./views/styles/login.css{{PROYECT_MODE}}">
+</head>
+<body>
+<section class="inicio">
+   
+    <div class="mainbox"> 
+        <form>
+              <div class="logo" >
+                 <img src="views/img/system/logo_3.png">
+              </div>
+              <div class="logo-nombre" >
+                <img src="views/img/system/LOGISTRUCK.png">
+             </div>
+            <div id="msg_error"></div>
+            <div class="input-box">
+                <label>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </label> 
+            </div>
+            <div class="input-box">
+                <label>
+                    <input type="Password" name="Clave" id="pass" placeholder="Contraseña" required>
+                    <img src="views/img/system/eye-slash.svg" class="icon">
+                </label> 
+               
+            </div>
+            <div class="boton">
+                <button type="submit" class="btn" id="btn_login" name="btn-login">Iniciar Sesion</button>
+            </div>
+            <hr style="margin: .5rem 0;">
+            <div class="sub_boton">
+             <a href="./pass" class="link-contra">¿olvidaste tu contraseña?</a> 
+            </div>
+        </form>
+    </div>
+</section>
+
+@extern('footer')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./views/js/requestApis.js{{PROYECT_MODE}}"></script>
+    <script src="./views/js/login.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@extern('head')
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" type="text/css" href="libs/Modal/modal.css{{PROYECT_MODE}}">
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerUser')
+	
+	<!-- TEMPLATE TABLE -->
+	<template id="tpl_row_table">
+		<tr>
+			<th></th>
+			<td></td>
+		</tr>
+	</template>
+
+	<!-- PRINCIPAL -->
+	<section>
+		<div class="user-vista">
+			<div class="vista">
+				<h2 class="section-title" style="justify-content: center;">
+					<img src="views/img/system/truck.svg" >
+					Vehículo Asignado
+				</h2>
+
+				<span id="msg_section_error"></span>
+				<!-- INFO DEL VEHICULO -->
+				<table class="table-info-viaje" id="table_vehiculo">
+					<thead>
+						<tr >
+							<th colspan="2" class="title-table">Vehículo</th>
+						</tr>	
+					</thead>
+					<tbody id="table_content">
+						<!-- AQUI SE INSERTARAN LOS DATOS DEL VEHICULO CON JS -->
+					</tbody>
+				</table>
+				
+				<hr style="margin:1rem">
+
+				<!-- BOTON REALIZAR INFORME -->
+				<div id="box_btn" style="text-align: right;"></div>
+			</div>	
+		</div>
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPTS -->
+	<script src="libs/Jquery/jquery-3.7.1.min.js"></script>
+	<script defer src="libs/Modal/modal.js"></script>
+	<script src="views/js/requestApis.js"></script>
+	<script src="views/js/script.js"></script>
+	<script src="views/js/vehiculoUser.js"></script> 
+</body>
+</html>

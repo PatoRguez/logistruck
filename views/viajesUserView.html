@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@extern('head')
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerUser')
+	
+	<!-- TEMPLATE CARD VIAJE -->
+	<template id="tpl_card">
+		<div class="card-viaje">
+			<ul> 
+				<li class="tpl-row-direccion"></li>
+				<li>Fecha de Salida: <span class="tpl-row-fecha"></span></li>
+			</ul>
+			<img src="views/img/system/arrow_forward_ios.svg">
+		</div>	
+	</template>
+	
+	<!-- PRINCIPAL -->
+	<section>
+		<div class="user-vista">
+			<div class="vista">
+				<h2 class="section-title" style="justify-content: center;">
+					<img src="views/img/system/viaje.svg" >
+					Viajes Asignados
+				</h2>
+				<div id="viajes_asignados">
+					<!-- AQUI SE INSERTARAN LOS DATOS DE LOS VIAJES ASIGNADOS CON JS -->
+				</div>
+				
+			</div>
+			
+			<hr style="margin:20px 0;">
+
+			<!-- VIAJES REALIZADOS -->
+			<div class="vista">
+				<h2>Viajes Realizados</h2>
+				<div id="viajes_realizados">
+					<!-- AQUI SE INSERTARAN LOS DATOS DE LOS VIAJES REALIZADOS CON JS -->
+				</div>
+			</div>	
+		</div>	
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPTS -->
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/viajesUser.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

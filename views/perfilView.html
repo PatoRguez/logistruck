@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	@extern('head')
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/Modal/modal.css{{PROYECT_MODE}}">
+</head>
+<body>
+	<!-- HEADER -->
+	{{HEADER}} 
+
+	<!--PRINCIPAL-->
+	<section>
+		<!-- INFO PERFIL -->
+		<div class="container-perfil">
+			<div>
+				<img src="{{FOTO_USER}}" id="foto_user" width="100" class="img-perfil">
+			</div>
+			<div>
+				<h1 id="nombre_user">{{NOMBRE_USER}}</h1>
+				<ul>
+					<li><i class="bi bi-envelope-at"></i><b> Email:</b> <span id="email_user">{{EMAIL_USER}}</span> </li>
+					<li><i class="bi bi-telephone"></i><b> Teléfono:</b> <span id="telefono_user">{{TEL_USER}}</span> </li>
+					<li><i class="bi bi-cake2"></i><b> Fecha de Nacimiento:</b> <span id="fechaN_user">{{FECN_USER}}</span> </li>
+					<li><i class="bi bi-calendar-event"></i><b> Fecha de Ingreso:</b> <span id="fechaI_user">{{FECI_USER}}</span> </li>
+				</ul>
+			</div>
+		</div>
+	
+		<!-- MODIFICAR PERFIL -->
+		<div class="container-perfil-setting">
+			<div class="container-perfil-control">
+				<h1>Perfil</h1>
+
+				<button id="btn_setting" class="btn btn-setting">
+					<img src="views/img/system/setting.svg" alt="">
+				</button>
+			</div>
+			<div class="formulario-perfil">
+				<div class="formulario-perfil-oscu" id="form_block"></div>
+				<form id="form_perfil">
+					<div class="inputs" style="text-align: center;">
+						<img src="{{FOTO_USER}}" width="180" id="img_foto" class="img-perfil2">
+						<input type="file" name="foto" id="input_foto" accept="image/*">
+						<p>
+						<label for="input_foto" class="btn">Cambiar Foto</label>	
+					</div>
+					<div>
+						<div class="inputs all">
+							<label for="input_nombre">Nombre</label>
+							<input type="text" name="nombre" id="input_nombre" value="{{NOMBRE_USER}}" placeholder="{{NOMBRE_USER}}" required>
+						</div>
+						<div class="inputs-group">
+							<div class="inputs">
+								<label for="input_fechaN">Fecha de Nacimiento</label>
+								<input type="date" name="fechaN" id="input_fechaN" value="{{FECN_USER}}" placeholder="{{FECN_USER}}" required>	
+							</div>	
+							<div class="inputs">
+								<label for="input_telefono">Teléfono</label>
+								<input type="number" name="telefono" id="input_telefono" value="{{TEL_USER}}" placeholder="{{TEL_USER}}" required>	
+							</div>	
+						</div>
+						<div class="inputs-group">
+							<div class="inputs">
+								<label for="input_email">Email</label>
+								<input type="email" name="email" id="input_email" value="{{EMAIL_USER}}" placeholder="{{EMAIL_USER}}" required>	
+							</div>
+							<div class="inputs">
+								<label id="view_pass" for="input_pass" >
+									Contraseña
+				                    <img src="views/img/system/eye-slash.svg" id="icono" width="16px">
+								</label>
+								<input type="password" name="pass" id="input_pass" value="{{PASS_USER}}" placeholder="{{PASS_USER}}" required>
+							</div>	
+						</div>
+						<input type="submit" class="btn" value="Guardar">	
+	                    <button class="btn" id="generate">
+	                    	Generar Contraseña
+	                    </button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+	
+	<!-- SCRIPTS -->
+	<script src="libs/Jquery/jquery-3.7.1.min.js"></script>
+	<script defer src="libs/Modal/modal.js{{PROYECT_MODE}}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/perfil.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

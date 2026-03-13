@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Logistruck</title>
+    <style>
+    	@font-face{
+		    font-family: 'Montserrat';
+		    src: url(../libs/Montserrat/Montserrat-VariableFont_wght.ttf);
+		}
+        body {
+            font-family: 'Montserrat';
+            background-color: #E9FFEB;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        .header{
+        	color: #2e6d4e;
+        	/*background-color:#E5EAD4;*/
+        	padding: 1.5rem 0; 
+        }
+		.header h2{
+			margin: 0;
+            text-align: center;
+
+		}
+        .content{
+        	/*background-color: #E5EAD4;*/
+        	padding: 1.5rem
+        }
+        .content h3, .content h2 {
+            color: #2e6d4e;
+        }
+        .content p {
+            color: #555555;
+            line-height: 1.6;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .content li {
+            margin-bottom: 10px;
+        }
+        footer {
+        	/*background-color: #2e6d4e;*/
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        footer p{
+        	color: #999999
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    	<div class="header">
+	    	<img src="https://logistruck.escuelarobertoarlt.com/views/img/system/logo_3.png" alt="Logistruck Logo" style="display: block; margin: 0 auto; width: 150px;">
+            <img src="https://logistruck.escuelarobertoarlt.com/views/img/system/LOGISTRUCK.png" alt="Logistruck Logo" style="display: block; margin: 1rem auto 0; width: 300px;">
+    	</div>
+    	<div class="content">
+            <h2>¡ Bienvenido a Logistruck !</h2>
+	    	<p>Estimado/a {{NOMBRE}},</p>
+	        <p>¡Nos complace darte la bienvenida a Logistruck! Estamos emocionados de tenerte en nuestra comunidad de logística y transporte.</p>
+	        
+	        <h3>Tus credenciales para iniciar sesión:</h3>
+	        <ul>
+	            <li><strong>Correo electrónico:</strong> {{EMAIL}}</li>
+	            <li><strong>Contraseña:</strong> {{PASS}}</li>
+	        </ul>
+	        
+	        <p>Para acceder a tu cuenta, simplemente accede nuestra aplicación y utiliza las credenciales anteriores.</p>
+	        
+	        <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos. Estamos aquí para ayudarte con todas tus necesidades.</p>
+	        
+	        <p>¡Bienvenido a bordo!</p>	
+    	</div>
+	    <footer>
+	        <p>© 2024 Logistruck. Todos los derechos reservados.</p>
+	    </footer>
+	</div>
+    
+</body>
+</html>

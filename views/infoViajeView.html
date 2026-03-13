@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	@extern('head')
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerUser')
+	
+	<!-- TEMPLATE TABLE -->
+	<template id="tpl_row_table">
+		<tr>
+			<th></th>
+			<td></td>
+		</tr>
+	</template>
+
+	<!-- TEMPLATE CARD VIAJE -->
+	<template id="tpl_card">
+		<div class="card-viaje">
+			<ul> 
+				<li class="tpl-row-direccion"></li>
+				<li>Fecha de Salida: <span class="tpl-row-fecha"></span></li>
+			</ul>
+		</div>	
+	</template>
+
+	<!-- PRINCIPAL -->
+	<section>
+		<div class="user-vista">
+			<div class="vista">
+				<!-- BOTON REGRESAR -->
+				<a href="{{BTN_VOLVER_URL}}">
+					<img src="views/img/system/arrow_back.svg" width="30px">
+				</a>
+
+				<div style="margin: 0 1rem;">
+					<h2>Información del Viaje</h2>
+
+					<!-- CARD VIAJE -->
+					<div id="viajes_asignados">
+						<!-- AQUI SE INSERTARAN LA CARD DEL VIAJE CON JS -->
+					</div>
+					
+					<hr style="margin:1rem;">
+
+					<!-- INFO DESTINO -->
+					<table class="table-info-viaje">
+						<thead>
+							<tr>
+								<th colspan="2" id="table_head_viaje" class="title-table">Viaje</th>
+							</tr>
+						</thead>
+						<tbody id="table_content_viaje">
+							<!-- AQUI SE INSERTARAN LOS DATOS DEL VIAJE CON JS -->
+						</tbody>
+					</table>
+
+					<!-- INFO DEL PRODUCTO -->
+					<table class="table-info-viaje">
+						<thead>
+							<tr >
+								<th colspan="2" id="table_head_producto" class="title-table">Producto</th>
+							</tr>	
+						</thead>
+						<tbody id="table_content_producto">
+							<!-- AQUI SE INSERTARAN LOS DATOS DEL PRODUCTO CON JS -->
+						</tbody>
+					</table>
+
+					<!-- INFO DEL VEHICULO -->
+					<table class="table-info-viaje">
+						<thead>
+							<tr >
+								<th colspan="2" id="table_head_vehiculo" class="title-table">Vehículo</th>
+							</tr>	
+						</thead>
+						<tbody id="table_content_vehiculo">
+							<!-- AQUI SE INSERTARAN LOS DATOS DEL VEHICULO CON JS -->
+						</tbody>
+					</table>
+					<hr style="margin:1rem;">
+
+					<div id="box_btn" style="text-align: right;"></div>
+				</div>
+			</div>	
+		</div>	
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPT -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/infoViaje.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

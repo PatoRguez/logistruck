@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	@extern('head')
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />	
+<body>
+	<!-- HEADER -->
+	@extern('headerAdmin')
+	
+	<!-- TEMPLATE REPORTE -->
+	<template id="tpl_card_informe">
+		<div class="card-informe">
+			<img src="views/img/system/usuario2.png">
+			<div class="card-content">
+				<span>Facundo Sandoval</span>
+				<b>ha envio un informe de un vehiculo</b>
+				<p>fslhfskjhfgsklhgljfsl</p>
+			</div>
+			<b class="fecha">23:12</b>
+		</div>
+	</template>
+
+	<!--PRINCIPAL-->	
+	<section class="section-panel">
+		<!-- INICIO -->
+		<article class="panel-info">
+			<h1 class="title-panel">Panel de Administración</h1>
+			<hr class="linea-panel">
+			<!-- VIAJES STACK -->
+			<div class="banner">
+				<div class="box-porcentaje">
+					<img src="views/img/system/viaje3.svg">
+					<b id="viaje_sa_cant"></b>
+					<span>viajes sin asignar</span>
+				</div>
+				<div class="box-porcentaje">
+					<img src="views/img/system/viaje2.svg">
+					<b id="viaje_as_cant"></b>
+					<span>viajes asignados</span>
+				</div>
+				<div class="box-porcentaje">
+					<img src="views/img/system/truck-speed.svg">
+					<b id="viaje_ep_cant"></b>
+					<span>viajes en proceso</span>
+				</div>
+				<div class="box-porcentaje">
+					<img src="views/img/system/viaje-check.svg">
+					<b  id="viaje_fi_cant"></b>
+					<span>viajes finalizados</span>
+				</div>
+			</div>
+
+			<!-- MAPA -->
+			<div class="box-mapa" style="padding: 0">
+				<div id="mapa"></div>	
+			</div>
+		</article>
+
+		<!-- NOTIFICACIONES -->
+		<article class="notificaciones">
+			<h1>Informes</h1>
+			<!-- INPUT BUSCADOR -->
+			<input type="text" class="input-search" id="buscador" placeholder="Buscar..." style="margin:1rem">
+
+			<div class="informes" id="reportes">
+				<!-- AQUI SE INSERTAR LOS INFORMES CON JS -->
+			</div>
+		</article>
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPTS -->
+	<!-- leaflet js -->
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+	<!-- leaflet routing js -->
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+	<!-- scripts de la app -->
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/mapa.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/panelAdmin.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

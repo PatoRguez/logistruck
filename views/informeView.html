@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	@extern('head')
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerAdmin')
+	
+	<!-- TEMPLATE TABLE -->
+	<template id="tpl_row_table">
+		<tr>
+			<th></th>
+			<td></td>
+		</tr>
+	</template>
+
+	<!-- TEMPLATE CARD VIAJE -->
+	<template id="tpl_card">
+		<div class="card-viaje">
+			<ul> 
+				<li class="tpl-row-direccion"></li>
+				<li>Fecha de Salida: <span class="tpl-row-fecha"></span></li>
+			</ul>
+		</div>	
+	</template>
+
+	<!-- PRINCIPAL -->
+	<section>
+		<div class="user-vista">
+			<div class="vista">
+				<!-- BOTON REGRESAR -->
+				<a href="{{BTN_VOLVER_URL}}">
+					<img src="views/img/system/arrow_back.svg" width="30px">
+				</a>
+
+				<div style="margin: 0 1rem;">
+					<h2>Reporte</h2>
+					
+					<hr style="margin:1rem;">
+					
+					<!-- QUIEN ENVIO EN REPORTE -->
+					<div style="margin: 0 1rem;line-height:1.5rem">
+						<p id="empleado">
+							<b>De:</b>
+						</p>
+						<p id="vehiculo">
+							<b>Vehiculo:</b>
+						</p>
+						<p id="fecha">
+							<b>Fecha:</b>
+						</p>
+					</div>
+
+					<hr style="margin:1rem;">
+
+					<!-- REPORTE -->
+					
+					<div style="margin: 0 1rem;line-height:1.5rem">
+						<p id="asunto">
+							<b>Asunto:</b><br>
+						</p>
+						<p id="problema">
+							<b>Problema:</b><br>
+						</p>
+						<p id="descripcion">
+							<b>Descripción:</b><br>
+						</p>
+					</div>
+
+				</div>
+			</div>	
+		</div>	
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPT -->
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/informe.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@extern('head')
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/Modal/modal.css{{PROYECT_MODE}}">
+	<!-- Jquery CSS -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />	
+	<link rel="stylesheet" type="text/css" href="views/styles/loader.css{{PROYECT_MODE}}">
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerAdmin')
+
+	<!-- TEMPLATE TABLA -->
+	<template id="tpl_row_table">
+		<tr>
+			<td class="tpl-col-nombre"></td>
+			<td class="tpl-col-provincia"></td>
+			<td class="tpl-col-departamento"></td>
+			<td class="tpl-col-direccion"></td>
+            <td class="tpl-col-kmRecorridos"></td>
+            <td class="tpl-col-tiempo"></td>
+			<td>
+				<button class="btn btn-edit">
+					<img src="views/img/system/edit.svg" alt="">
+				</button>
+				<button class="btn btn-delete" >
+					<img src="views/img/system/delete.svg" alt="">
+				</button>
+			</td>
+		</tr>
+	</template>
+	
+	<!--PRINCIPAL-->
+	<section class="section-body" >
+		<!-- LOADER -->
+		<div class="lds-dual-ring loader" id="loader"></div>
+	
+		<!-- TITULO DE LA SECCION -->
+		<h2 class="section-title">
+			<img src="views/img/system/destination-route.svg">
+			Destinos
+			<!-- BOTON VER EN MAPA -->
+			<button class="btn btn-alert" id="btn_mapa" style="height: 30px">
+				<img src="views/img/system/map.svg">
+				<span>Ver Mapa</span>
+			 </button>
+
+			 <!-- BOTON VER EN MAPA -->
+			 <button class="btn btn-alert" id="btn_tabla" style="height: 30px">
+				<img src="views/img/system/table-list.svg">
+				<span>Ver Tabla</span>
+			 </button>
+		</h2>
+		
+		<hr>
+	
+		<!-- SECCION DE CONTROL -->
+		<div class="section-control" id="section_control">
+			<!-- BOTON AGREGAR -->
+			<button class='btn' id="btn_mapa">
+				<i class='bi bi-plus-lg'></i> 
+				Agregar Destinó
+			</button>
+
+			<!-- INPUT BUSCADOR -->
+			<input type="text" class="input-search" id="buscador" placeholder="Buscar">
+			
+			<!-- PAGINACION -->
+			<div id="div_select_pag">
+				<button id="btn_last_page" class="select-pag" style="background-color: white"> 
+					<
+				</button>
+				<select id="select_pag" class="select-pag"></select>
+				<button id="btn_next_page" class="select-pag" style="background-color: white"> 
+					>
+				</button>
+			</div>
+
+			<!-- ORDENAMIENTO -->
+			<div>
+				<label for="select_order">Ordenar por</label>
+				<select id="select_order" class="select-pag">
+					<option value="true">más reciente</option>
+					<option value="false">más antiguo</option>
+				</select>
+			</div>
+		</div>
+		
+		<!-- TABLA -->
+		<div class="table-scroll" id="contenido_tablas">
+			<table id="tabla">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Provincia</th>
+			            <th>Departamento</th>
+			            <th>Dirección</th>
+			            <th>Km Recorrido</th>
+						<th>Tiempo estimado</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="tabla_content">
+					
+				</tbody>
+			</table>	
+		</div>
+		
+		<!-- MAPA -->
+		<div id="content_mapa" style="display: none;">
+			<!-- FORMULARIO -->
+			<form id="form_destinos" style="padding: .5rem">
+				<h3 id="title_form_destinos">Buscar Dirección</h3>
+				<div class="inputs all" id="nombre_destino_div" style="display: none;">
+					<label for="">Nombre</label>
+					<input type="text" name="nombre_destino" id="nombre_destino_input">
+				</div>
+				<div class="inputs-group">
+					<div class="inputs">
+						<label for="select_provincia">Provinvia</label>
+						<select name="provincia" id="select_provincia" required>
+							<option value="nada" disabled selected>Selecciona una Provincia</option>
+						</select>
+				  		<span id="msg_error_form_provincia" class="msg-error-form"></span>
+					</div>
+					<div class="inputs">
+						<label for="select_departamento">Departamento</label>
+						<select name="departamento" id="select_departamento" required>
+							<option value="nada" disabled selected>Selecciona un departamento</option>
+				  		</select>
+				  		<span id="msg_error_form_departamento" class="msg-error-form"></span>
+					</div>	
+				</div>
+				<div class="inputs-group">
+					<div class="inputs all">
+			            <label for="input_direccion">Dirección referencia</label> 
+			            <input type="text" name="direccion" id="input_direccion" >
+				  		<span id="msg_error_form_direccion" class="msg-error-form"></span>
+			        </div>
+					<div class="inputs all">
+						<label for="select_direccion">Dirección exacta</label>
+						<select name="direccion_exacta" id="select_direccion" required>
+							<option value="nada" disabled selected>No se ingreso direccion</option>
+				  		</select>
+				  		<span id="msg_error_form_direccion2" class="msg-error-form"></span>
+					</div>	
+				</div>
+				<input type="hidden" name="id" id="id_destino">
+		        <div style="display: flex;gap:1rem">
+			        <button type="submit" id="btn_ver_mapa" class="btn btn-alert">
+						<img src="views/img/system/map.svg" alt="">
+						Ver en mapa
+					</button>
+					
+					<button id="btn_agregar" class="btn"> 
+						Agregar Destinó
+					</button>	
+					<span id="msg_destino"></span>
+		        </div>
+			</form>
+
+			<!-- SIGNIFICADO DE LOS ICONOS -->
+			<div class="leyenda">
+			    <h4>Significado de los íconos:</h4>
+			    <div><img src="views/img/system/destino.png" >Destinos registrados</div>
+			</div>
+			<!-- MAPA -->
+			<div class="box-mapa" >
+				<div id="mapa"></div>	
+			</div>	
+		</div>
+		
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPTS -->
+
+	<!-- leaflet js -->
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+	<!-- leaflet routing js -->
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+	<script src="libs/Jquery/jquery-3.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+	<script defer src="libs/Modal/modal.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/mapa.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/destinos.js{{PROYECT_MODE}}"></script>
+	<script type="text/javascript">
+		// LOADER
+		window.addEventListener('load', ()=>{
+			document.getElementById('loader').classList.toggle('loader2')
+		})
+	</script>
+</body>
+</html>

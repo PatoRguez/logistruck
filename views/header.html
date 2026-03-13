@@ -1,0 +1,33 @@
+<header class="header">
+  <button class="btn-menu-open" id="btn_menu_open">
+    <img src="views/img/system/hamburger-button.svg">
+  </button>
+  <div class="header-logo" id="header_logo">
+    <img src="views/img/system/logo_3.png" class="header-logo-img">
+     <!-- <span class="color-diferente">Logis</span> -->
+     <!-- <span class="color-diferente2">Truck</span> -->
+    <img src="views/img/system/LOGISTRUCK.png" class="header-logo-text"> 
+  </div>    
+  <a class="link-perfil" onclick="infoPerfil()"><img src="views/img/system/avatar.svg"></a>
+  
+  <!-- ALERTA INFO USER -->
+  <div class="alerta-user" id="alerta_user">
+    <div class="alerta-user-i">
+      <h3>{{NOM_ALERT}}</h3> 
+      <h5>{{EMAIL_ALERT}}</h5>
+    </div>
+    <div class="alerta-user-d">
+      <a href="perfil">
+          <img src="views/img/system/person-circle.svg">Perfil
+      </a>
+      <br>
+      <a href="">
+          <img src="views/img/system/info-circle-fill.svg">Ayuda
+      </a>
+      <hr style="margin-top:10px;">
+      <button onclick="a()" class="btn-alert btn">
+        <img src="views/img/system/logout.svg">Cerrar Sesion
+      </button>
+    </div>
+  </div>
+</header>

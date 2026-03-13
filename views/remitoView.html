@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@extern('head')
+    <link rel="stylesheet" type="text/css" href="libs/Modal/modal.css{{PROYECT_MODE}}">
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerUser')
+	
+	<!-- TEMPLATE CARD VIAJE -->
+	<template id="tpl_card">
+		<div class="card-viaje">
+			<ul> 
+				<li class="tpl-row-direccion"></li>
+				<li>Fecha de Salida: <span class="tpl-row-fecha"></span></li>
+			</ul>
+			<img src="views/img/system/arrow_forward_ios.svg">
+		</div>	
+	</template>
+	
+	<!-- PRINCIPAL -->
+	<section>
+        <div class="user-vista">
+            <div class="vista">
+                <!-- BOTON REGRESAR -->
+                <a href="{{BTN_VOLVER_URL}}">
+                    <img src="views/img/system/arrow_back.svg" width="30px">
+                </a>
+                
+                <div style="margin: 0 1rem">
+                    <h2>Remito del viaje</h2>
+                    <!-- CARD VIAJE -->
+                    <div id="viajes_asignados">
+                        <!-- AQUI SE INSERTARAN LA CARD DEL VIAJE CON JS -->
+                    </div>
+
+                    <hr style="margin: 1rem">
+
+                    <!-- FORMULARIO -->
+                    <form id="form_remito" >
+                        <!-- TRACTOR -->
+                        <div class="inputs all">
+                            <label for="vehiculo">Tractor</label>
+                            <input type="text" id="vehiculo" readonly>
+                        </div>
+
+                        <!-- TRAILER -->
+                        <div class="inputs all">
+                            <label for="acoplado">Trailer</label>
+                            <input type="text" id="acoplado" readonly>
+                        </div>
+
+                        <!-- PRODUCTO -->
+                        <div class="inputs all">
+                            <label for="producto">Producto</label>
+                            <input type="text" id="producto" readonly>
+                        </div>
+
+                        <!-- ENTREGA POR INDICADOR -->
+                        <h3>Entrega por Indicador</h3>
+                        <div class="inputs-group">
+                            <div class="inputs">
+                                <label for="ind_desp">Indicador Después</label>
+                                <input type="number" name="indicadorDesp" id="ind_desp" required>
+                            </div>
+                            <div class="inputs">
+                                <label for="ind_ant">Indicador Antes</label>
+                                <input type="number" name="indicadorAnt" id="ind_ant" required>
+                            </div>
+                        </div>
+                        <div class="inputs all">
+                            <label for="cant_fact_ind">Cantidad a facturar</label>
+                            <input type="number" name="cantFacturarI" id="cant_fact_ind" required>
+                        </div>
+                     
+                        <!-- ENTREGA POR BASCULA -->
+                        <h3>Entrega por Bascula</h3>
+                        <div class="inputs-group">
+                            <div class="inputs all">
+                                <label for="peso_final_basc">Peso Final</label> 
+                                <input type="number" name="pesoFinalB" id="peso_final_basc" required>
+                            </div>
+                            <div class="inputs all">
+                                <label for="peso_inicial_basc">Peso Inicial</label>
+                                <input type="number" name="pesoInicialB" id="peso_inicial_basc" required>
+                            </div>  
+                        </div>
+                        <div class="inputs-group">
+                            <div class="inputs all">
+                                <label for="cant_ent_peso_basc">Cantidad Ent. Peso</label> 
+                                <input type="number" name="cantEntPesoB" id="cant_ent_peso_basc"  required>
+                            </div>
+                            <div class="inputs all">
+                                <label for="factor_conver_basc">Factor de Conversión</label>
+                                <input type="number" name="factorConversion" id="factor_conver_basc"  required>
+                            </div>  
+                        </div>
+                        <div class="inputs all" >
+                            <label for="cant_fact_basc">Cantidad a Facturar</label>
+                            <input type="number" name="cantFacturarB" id="cant_fact_basc"  required>
+                        </div> 
+
+                        <div class="inputs-group">
+                            <div class="inputs all">
+                                <label for="vol_entregado">Volumen entregado</label> 
+                                <input type="number" name="volEntregado" id="vol_entregado"  required>
+                            </div>
+                            <div class="inputs all">
+                                <label for="vol_residual">Volumen Residual</label>
+                                <input type="number" name="volResidual" id="vol_residual" required>
+                            </div>  
+                        </div>
+                        <div class="inputs all">
+                            <label for="cant_ent_facturar">Cantidad Entrega a Facturar</label>
+                            <input type="number" name="cantEntreFact" id="cant_ent_facturar" required>
+                        </div>
+
+                        <!-- BOTON ENVIAR -->
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn">
+                                Enviar remito
+                            </button>
+                        </div>
+                    </form>    
+                </div>
+            </div>
+        </div>
+        
+	</section>
+	
+	<!-- FOOTER -->
+	@extern('footer')
+
+	<!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+    <script src="views/js/script.js{{PROYECT_MODE}}"></script>
+    <script src="views/js/remito.js{{PROYECT_MODE}}"></script>
+</body>
+</html>

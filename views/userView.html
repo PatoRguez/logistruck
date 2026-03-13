@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	@extern('head')
+</head>
+<body>
+	<!-- HEADER -->
+	@extern('headerUser')
+	
+	<!-- TEMPLATE CARD VIAJE -->
+	<template id="tpl_card">
+		<div class="card-viaje">
+			<ul> 
+				<li class="tpl-row-direccion"></li>
+				<li>Fecha de Salida: <span class="tpl-row-fecha"></span></li>
+			</ul>
+			<img src="views/img/system/arrow_forward_ios.svg">
+		</div>	
+	</template>
+	
+	<!-- PRINCIPAL -->
+	<section> 
+		<div class="user-vista">
+			<div class="vista">
+				<h2>Viajes Asignados</h2>
+				<div id="viajes_asignados">
+					<center>Cargando...</center>
+					<!-- AQUI SE VOLCARON LOS VIAJES ASIGNADOS CON JS -->
+				</div>
+			</div>
+			<hr style="margin:20px 0;">
+			<div style="width: 100%">
+				<h1 class="title-panel">Menú Principal</h1>
+				<hr class="linea-panel">
+			</div>
+			<div class="banner" >
+				<a href="./viajesE">
+					<div class="conteiner">
+						<div id="sv">
+							<img src="views/img/system/viaje.svg">
+						</div>
+						<div id="text">
+							<h2>Mis Viajes</h2>
+						</div>
+					</div>
+				</a>
+
+				<a href="./vehiculoE">
+					<div class="conteiner">
+						<div id="sv">
+							<img src="views/img/system/truck.svg">
+						</div>
+					<div id="text">
+							<h2>Mi Vehículo</h2>
+						</div>
+					</div>
+				</a>
+
+				<a href="./estatE">
+					<div class="conteiner">
+						<div id="sv">
+							<img src="views/img/system/grafico.svg">
+						</div>
+					<div id="text">
+							<h2>Estadísticas</h2>
+						</div>
+					</div>
+				</a>
+				
+			</div>		
+		</div>	
+	</section>
+	
+	<!-- FOOTER -->
+	<footer id="footer">
+		<span>Copyright&copy2024 <a href="index.html">LogicTruck</a></span><a href="">Politica y Privacidad</a>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script src="views/js/requestApis.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/script.js{{PROYECT_MODE}}"></script>
+	<script src="views/js/viajesUser.js{{PROYECT_MODE}}"></script>
+</body>
+</html>
